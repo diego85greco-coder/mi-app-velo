@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Home, Users, Heart, MessageCircle, HelpCircle } from 'lucide-react';
+import { Home, Users, Heart, MessageCircle, Shield, Info } from 'lucide-react';
 import Inicio from './pages/Inicio';
 import Guardians from './pages/Guardians';
 import Ayuda from './pages/Ayuda';
@@ -7,7 +7,7 @@ import Circulos from './pages/Circulos';
 import Contacto from './pages/Contacto';
 import VeloVelaPorTi from './pages/VeloVelaPorTi';
 
-type Section = 'inicio' | 'guardians' | 'ayuda' | 'circulos' | 'contacto' | 'veloVela';
+type Section = 'inicio' | 'guardians' | 'ayuda' | 'circulos' | 'contacto' | 'velovelaporti';
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('inicio');
@@ -24,7 +24,7 @@ function App() {
         return <Circulos />;
       case 'contacto':
         return <Contacto />;
-      case 'veloVela':
+      case 'velovelaporti':
         return <VeloVelaPorTi />;
       default:
         return <Inicio onNavigate={setActiveSection} />;
@@ -32,60 +32,30 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white overflow-hidden">
-      <div className="flex-1 overflow-y-auto">
-        {renderSection()}
-      </div>
+    <div className="min-h-screen bg-gray-50 pb-20">
+      {renderSection()}
 
-      <nav className="border-t border-gray-200 bg-white sticky bottom-0 flex justify-around items-center px-4 py-3 gap-2">
-        <button
-          onClick={() => setActiveSection('inicio')}
-          className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-            activeSection === 'inicio' ? 'text-green-600 bg-green-50' : 'text-gray-400'
-          }`}
-        >
+      {/* Menú de Navegación Inferior */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 flex justify-between items-center z-50">
+        <button onClick={() => setActiveSection('inicio')} className={`flex flex-col items-center ${activeSection === 'inicio' ? 'text-purple-600' : 'text-gray-500'}`}>
           <Home size={24} />
-          <span className="text-xs mt-1">INICIO</span>
+          <span className="text-xs mt-1">Inicio</span>
         </button>
-
-        <button
-          onClick={() => setActiveSection('guardians')}
-          className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-            activeSection === 'guardians' ? 'text-blue-600 bg-blue-50' : 'text-gray-400'
-          }`}
-        >
+        <button onClick={() => setActiveSection('guardians')} className={`flex flex-col items-center ${activeSection === 'guardians' ? 'text-purple-600' : 'text-gray-500'}`}>
+          <Shield size={24} />
+          <span className="text-xs mt-1">Guardianes</span>
+        </button>
+        <button onClick={() => setActiveSection('circulos')} className={`flex flex-col items-center ${activeSection === 'circulos' ? 'text-purple-600' : 'text-gray-500'}`}>
           <Users size={24} />
-          <span className="text-xs mt-1">GUARDIANS</span>
+          <span className="text-xs mt-1">Círculos</span>
         </button>
-
-        <button
-          onClick={() => setActiveSection('ayuda')}
-          className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-            activeSection === 'ayuda' ? 'text-red-600 bg-red-50' : 'text-gray-400'
-          }`}
-        >
+        <button onClick={() => setActiveSection('ayuda')} className={`flex flex-col items-center ${activeSection === 'ayuda' ? 'text-purple-600' : 'text-gray-500'}`}>
           <Heart size={24} />
-          <span className="text-xs mt-1">AYUDA</span>
+          <span className="text-xs mt-1">Ayuda</span>
         </button>
-
-        <button
-          onClick={() => setActiveSection('circulos')}
-          className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-            activeSection === 'circulos' ? 'text-yellow-600 bg-yellow-50' : 'text-gray-400'
-          }`}
-        >
+        <button onClick={() => setActiveSection('contacto')} className={`flex flex-col items-center ${activeSection === 'contacto' ? 'text-purple-600' : 'text-gray-500'}`}>
           <MessageCircle size={24} />
-          <span className="text-xs mt-1">CÍRCULOS</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSection('contacto')}
-          className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-colors ${
-            activeSection === 'contacto' ? 'text-orange-600 bg-orange-50' : 'text-gray-400'
-          }`}
-        >
-          <HelpCircle size={24} />
-          <span className="text-xs mt-1">CONTACTO</span>
+          <span className="text-xs mt-1">Contacto</span>
         </button>
       </nav>
     </div>
