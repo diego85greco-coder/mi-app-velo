@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { Home, Users, Heart, MessageCircle, Shield } from 'lucide-react';
 
-// Importamos desde la NUEVA carpeta 'views'
-import Inicio from './views/Inicio';
-import Guardians from './views/Guardians';
-import Ayuda from './views/Ayuda';
-import Circulos from './views/Circulos';
-import Contacto from './views/Contacto';
-import VeloVelaPorTi from './views/VeloVelaPorTi';
+// IMPORTACIÓN CON RUTA TOTALMENTE DIRECTA
+import Inicio from './views/Inicio.tsx';
+import Guardians from './views/Guardians.tsx';
+import Ayuda from './views/Ayuda.tsx';
+import Circulos from './views/Circulos.tsx';
+import Contacto from './views/Contacto.tsx';
+import VeloVelaPorTi from './views/VeloVelaPorTi.tsx';
 
 type Section = 'inicio' | 'guardians' | 'ayuda' | 'circulos' | 'contacto' | 'velovelaporti';
 
-function App() {
+export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('inicio');
 
   const renderSection = () => {
@@ -49,5 +49,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
