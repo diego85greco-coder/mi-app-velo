@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Home, Users, Heart, MessageCircle, Shield } from 'lucide-react';
 
-// IMPORTACIÓN CON RUTA TOTALMENTE DIRECTA
+// USA ESTAS IMPORTACIONES EXACTAS (con .tsx al final)
 import Inicio from './views/Inicio.tsx';
 import Guardians from './views/Guardians.tsx';
 import Ayuda from './views/Ayuda.tsx';
@@ -9,10 +9,8 @@ import Circulos from './views/Circulos.tsx';
 import Contacto from './views/Contacto.tsx';
 import VeloVelaPorTi from './views/VeloVelaPorTi.tsx';
 
-type Section = 'inicio' | 'guardians' | 'ayuda' | 'circulos' | 'contacto' | 'velovelaporti';
-
 export default function App() {
-  const [activeSection, setActiveSection] = useState<Section>('inicio');
+  const [activeSection, setActiveSection] = useState('inicio');
 
   const renderSection = () => {
     switch (activeSection) {
