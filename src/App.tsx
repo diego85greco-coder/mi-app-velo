@@ -1,12 +1,13 @@
-
 import { useState } from 'react';
 import { Home, Users, Heart, MessageCircle, Shield, Info } from 'lucide-react';
-import Inicio from './pages/Inicio';
-import Guardians from './pages/Guardians';
-import Ayuda from './pages/Ayuda';
-import Circulos from './pages/Circulos';
-import Contacto from './pages/Contacto';
-import VeloVelaPorTi from './pages/VeloVelaPorTi';
+
+// Importaciones con extensión explícita para evitar errores en Vercel
+import Inicio from './pages/Inicio.tsx';
+import Guardians from './pages/Guardians.tsx';
+import Ayuda from './pages/Ayuda.tsx';
+import Circulos from './pages/Circulos.tsx';
+import Contacto from './pages/Contacto.tsx';
+import VeloVelaPorTi from './pages/VeloVelaPorTi.tsx';
 
 type Section = 'inicio' | 'guardians' | 'ayuda' | 'circulos' | 'contacto' | 'velovelaporti';
 
